@@ -1,5 +1,0 @@
-<launch>
-<arg name = "$(arg to_save)" /> 
-<node name="republish" type="republish" pkg="image_transport" output="screen" args="compressed in:=pylon_camera_node_aca1300/image_raw raw out:=img" />
-<node pkg="bin_segmentation" name="predict_bin" type="predict_bin.py" output="screen" args="$(find bin_segmentation)/scripts/ $(arg to_save)"/>  
-</launch>

@@ -1,103 +1,0 @@
-NRRD0004
-# Complete NRRD file format specification at:
-# http://teem.sourceforge.net/nrrd/format.html
-type: unsigned short
-dimension: 3
-space: left-posterior-superior
-sizes: 1280 1024 1
-space directions: (1,0,0) (0,1,0) (0,0,1)
-kinds: domain domain domain
-endian: little
-encoding: gzip
-space origin: (0,0,0)
-layer_000:=13
-layers:=1
-modality:=org.mitk.image.multilabel
-org.mitk.label_000_00000:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0" g="0" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="false" /></property><property key="name" type="StringProperty"><string value="Exterior" /></property><property key="opacity" type="FloatProperty"><float value="0" /></property><property key="value" type="UShortProperty"><unsigned value="0" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00001:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="1" g="0" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Asphalt" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="1" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00002:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0" g="1" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Grass" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="2" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00003:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0" g="0" b="1" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Water" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="3" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00004:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="1" g="1" b="1" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Buildings" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="4" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00005:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0" g="0.333333343" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Forest" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="5" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00006:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0.666666687" g="0.333333343" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Ground" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="6" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00007:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0.333333343" g="0.333333343" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Marsh" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="7" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00008:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="1" g="1" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="sand" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="8" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00009:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0" g="0" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Rocks" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="9" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00010:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="1" g="0" b="1" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="People" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="10" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00011:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0" g="1" b="1" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Cars" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="11" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-org.mitk.label_000_00012:=<?xml version="1.0" ?><Label><property key="center.coordinates" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="center.index" type="Point3dProperty"><point x="0" y="0" z="0" /></property><property key="color" type="ColorProperty"><color r="0.666666687" g="0.666666687" b="0" /></property><property key="layer" type="UIntProperty"><unsigned value="0" /></property><property key="locked" type="BoolProperty"><bool value="true" /></property><property key="name" type="StringProperty"><string value="Durt road" /></property><property key="opacity" type="FloatProperty"><float value="0.600000024" /></property><property key="value" type="UShortProperty"><unsigned value="12" /></property><property key="visible" type="BoolProperty"><bool value="true" /></property></Label>
-
-‹      íİÛnÉDQÂÀ¼ùÿ¿× Y‡—&Y‘™gÅz3RuS•½Q”è§§“÷{Ş¢~ïÚ_õ¿/¼ıû™u×¾×Ù“™=¾öıº‹çuÚïÚß÷¿êÏ¶XûgWföÈÚwê²Õ÷V‰İÓ~êÏÖ^ûÎg_föŞÚwç.í÷ï&»£ı^×ß{ı×~à.íÓ…{™Ù¿×¾/÷ĞştºÎ¿Ûï‘úk_5$´ÏîdfšïkÚŸIWy«üŞª¿¿û¯}Õ°ºö	Å£Ì¦¯}î£ı¹r÷ÚOıÁÚg2›»öİ·‹öçÉuŞo¿Ï¾÷Û¾r˜­}
-ÊlÖÚwÜ>Úgş•>n¿·Ÿÿ«hŸ†ç2›²ö½¶‹öi-õ»kŸ‰'3;í»lísşZ¾{«ÿ`wíÓñº3´}¯™»öİµƒöÙ~=õ§iŸ“×¢ík}Íì¼µïª´Ïô;ùŞ/œ«}v^s†¶¯ş7³3Ö¾“öĞ>½ïåoşÁéÚgèÕçèŠ¯ÅlŸµï =´Ïí{}şï>ôœà´“´ızŞzEf;¬}çtîN^z¤ışİÏk_9ğgœÆíO˜÷_—Ùªkß1­{’?m?ı':ãDnÒ¼ÿÚÌV\ûniÜ‹¼ô•ö{İÏk_?p¥3NåïîŠ÷àÊë¹;]«ı|©újkŸ;ùjı½ì¿çµ¯¸ÚY§òã»ò=øÉu$wİ»g;,×_]ùsf7_o¿×ı×~ÀN:•ßÕïÂ÷¯$·+ß?[Ù
-khœ1»ù^û½ì?õì2?¶{^ÿw®äÑëûé®}ÿlõu»,¡uÂìäûí÷úïÿçÛıl~l÷½_½’¯\Ûõ¿â•¿‹­±v—İ¯wºìä'­§ÿ€ßv=ŸßŞ½¯şŸO~÷÷vÏkış¯l©µ{j/w§¸âIŸş~Ùùl~½»ß…ßïÄ£[õÕ~å5Øw×î©½\{¯œèªïôê?à·Ïß¿wİ»ñùgÕç»û_ûŞÙÏÖî§½İs¯œÄßõHùŞ'Öïµ¯şvÕÚı´·ö}°ºŸü[ğ}_ıÔÚ£ş~]©]±vAí¢ıç}_?m@-ğ§~Ù÷Öî©İ´ÿœïMÿ¬àÔÏ4{tíšÚMûOöÎ®zş§ ®sÚ'›}¾vK)¶I®«?À{ì³µ»LıMrmıé? Şgï­]eêoı@–ı^»ÇÔ/é? ræ®]dê—ô -“Ön2õÇßô +8{í*SüMÿ°ÓÖî2åÇgô kÙí:S|Nÿ°®×î3ıÇ#ô {Øcí>S|<Fÿ°ŸU×®5íÇ£ô {[gíbÓw<Jÿp÷÷Øu~ÿµ¿Bté? NöY¾÷ßœİí¯
-mê€	>nÀÓû¯ıî³ıÀ,oWà¹ı×~¿Y‘ş`ª¿ğ§ûO½ô4Ò ğÇ÷Êï—võé?¥ÿ à¥ï”ß/íêS<JÿÀk_o¿gŠ=øé/ ğ¶¯”ß/ê=è? xß£å÷‹Öc}·Ÿş€GËï—»OıÑöyûé? øšùyúGŸş€«}ôı^íGÛcõ§ÿ à+^·ß£ß7†ı ×{İ~Oÿÿ_ÛWÆ$vş€Ÿû»ıÔú R÷Ï«1ì_}Ğ   ã­Ÿ¨ÿhøiÿ)@ øÜÛ?'ÚÏ|¦EÀıŞk?ıGÃÏûOÀ#şü´ÿŸot]Ñ
- >÷Ö³?ıGŞóŸD IÚ6 IÚ(@ HñìU\S
- >£ÿXÇu¨à}ú•\[€ Ş¢ÿXË¯j»ºõ  ü¡şX€{é?Ö£ àNúıi5 WÓ¬éşÔ€ L¥ıXU¢ U  i?ö¢ à§ô»Q€ ğ3ú©@ ø:ıÇŞ<	€¯ÒìîïkA €•é? €i  À\wµ " X• ˜F L¤  æQ€  óx 0Ë}ı§ Ö¤  fÑ  ó(@ €y  À,w>Ô€  +º· U  Àjîï? ° 0™ ˜Å3@ €i  À,wõŸ X— ˜Çs@ €Yîë? °¦{P ¬¦Ó
-  I ÌÓz¨ :ºı§  òÚ¨ ô À4
- `švê@ €´vû)@ € À3 0‹g€  Ó$P ô¥ûO ¬D Ì£  fñ ` 0K²ÿ  À  À<
- `Ï  ¦Ñ  ³è? €yô À<
- `–Ì3@ ° 0‹ş ˜G Ì£  fÉ<Ô€  ëP€  ³è? €y  À<©ç€: `ú `ı 0‹ş ˜Gÿ Ì£ÿ  fÑ  Óè? €Yô À<ú `ı 0‹'€  Óè? €Yô À<ú ` 0‹ï ÌrOÿ)@ €Ué? €iô À4ú ` 0Í=ßV‡  ëÒ  Óè? €iô À,ú `ı 0‹ş ˜G Ì£ÿ  fñ `ı 0‹ş ˜G L£  f¹¿ÿ  ÀJı§  Ö‘é? ° 0 ˜F L£ÿ  ¦Ñ  Ó(@ €iô À4
- ` 0Íı¨ Ö¢ÿ  ¦Ñ  ³è? €Yîî? °–ûûO ¬F Ì£  fñ ` 0Ëıı§  V£  ¦Q€  ³è? €Yô À,÷÷Ÿ X‹ş ˜Fÿ Ì¢ÿ  f¹»ÿ4  ÀZı§ Ö¢ÿ  æÑ  ³è? €iô À,  Ì¢ÿ  fÑ  Óè? €i< ˜æîÔ€  «Ñ  Óè? €iô À4ú ` 0‹ş ˜Eÿ Ì¢ÿ  fÑ  ³è? €Yîë? °& 0Ëı§  V¤  fÑ  ³è? €Yîí? °ı 0ş ˜Fÿ Ì¢ÿ  fÑ  ³è? €Yîë? °¢{ûO ¬Gÿ L£ÿ  fÑ  ³è? €Yô À,ú `–{ûO ¬Gÿ L£ÿ  ¦Ñ  ³è? €iô À,ú `ı 0‹ş ˜Eÿœê©~ÀšôÀ©ôğ6ıp*ı¼MÿœJÿoÓ §ÒÀÛôÀ©ôğ6ıp*ı¼GÿœIÿïóàDúøÈ=¨šôğıpı|DÿœGÿÑ çÑÀGôÀyôğ1ıpš'|Bÿ Ì¢ÿ  fÑ  ³è? €Yîè? °.ı 0‹ş ˜Eÿ Ì¢ÿ  fÑ  ³ÜÓ
- `]
- ` 0 ˜å®şS€  kº¯ÿ  ÀŠîì? °{ûO ¬æîşS€  k¹¿ÿ  ÀJı§  V¢  fÉôŸ X‡ ˜Eÿ Ì¢ÿ  fQ  ³è? €Yô À,ê `ı 0‹ş ˜Eÿ Ì¢ÿ  ¦Ñ  óè? €Yô À,ú `ı 0‹ş ˜Eÿ Ì¢ÿ  f¹·ÿ  Àjô À,ú `ı 0Ëİı§ Ö’è? °ı 0 ˜Eÿ Ì’é? °Š\ÿi@ €Uè? €i  À,ú `ı 0‹ş ˜%×
- `ÉşS€  +P€  ³dûO ô)@ €Yô À,ú `ı 0‹ş ˜Eÿ Ì¢ÿ  fÑ  Óè? €iô À4ú `ı 0‹ş ˜Fÿ Ì¢ÿ  ¦Ñ  ³è? €Yô À4ú `ı 0ş ˜Eÿ Ì¢ÿ  fÑ  ³è? €Yô À,ú `ı 0‹ş ˜åîşÓ€  kIôŸ X‡ş ˜Eÿ Ì¢ÿ  fÑ  ³è? €Yô À,©şS€  kĞ  ³äúO ¬ Û  Mÿ Ì’ï? Ğ¤ÿ  fiôŸ èiõŸ hÑ  Ó(@ €Yô À,½şÓ€  ú `ı 0‹ş ˜Fÿ L£ÿ  ¦Ñ  ³è? €Yô À,ú `ı 0‹ş ˜¦U€  E Ì¢ÿ  fÑ  ³è? €Yô À,ú `ı 0ş ˜Fÿ Ì¢ÿ  fÑ  ³è? €Yô À,şS€  =şS€  -­şS€  -
- `–^ÿ)@ € 0K³ÿ  @^·ÿ  @Z»ÿ  @V»ş  @V»ı  @^»ş  @Z»ş  @V»ı  @V»ü  @V»ûô @Z»üô @Z»ıô @V»ıô @V»ıô @V»ı  @V»ü  @V»û  @V»ú  @V»ù  @V»øô @^»úô @Z»û  @V»úô @V»ú  @V»ùô @Z»úô @Z»ûô @V»ûô @V»ûô @V»ûô @^»ıô @Z»ş  @V»ı  @V»ü  @V»ûô @V»ûô @V»ûô @V»ûô @V»ûô @Z»üô @Z»ıô @V»ıô @V»ıô @V»ıô @V»ıô @V»ıô @V»ıô @V»ıô @V»ıô @V»ı  @V»ü  @V»ûô @V»ûô @V»ûô @V»ûô @V»ûô @Z»ü  @Z»ü  @Z»ü  @V»ûô @V»ûô @V»ûô @V»ûô @V»ûô @V»ûô @V»ûô @V»û  @V»úô @V»ú  @Z»úô @Z»ûô @V»û  @V»ú  @V»ù  @Z»ùô @^»ûô @V»ûô @V»ûô @V»ûô @V»ûô @V»ûô @Z»üô @V»üô @Z»ıô @V»ı  @V»ü  @V»ûô @V»ûô @V»ûô @Z»üô @^»şô @V»ş  @V»ı  @V»ü  @V»ûô @V»ûô @Z»üô @V»üô @Z»ıô @V»ı  @V»ü  @V»ûô @V»ûô @V»ûô @V»û  @V»ú4  @Z»ùô @Z»úô @Z»ûô @V»ûô @V»ûô @V»ûô @V»ûô @V»ûô @Z»üô @Z»ıô @V»ı  @V»ü  @V»û  @V»ú  @V»ùô @Z»úô @Z»ûô @Z»üô @V»üô @V»üô @V»üô @V»ü  @V»ûô @Z»üô @Z»ıô @V»ı  @V»ü  @V»ûô @Z»ü  @^»ı  @V»üô @V»ü  @V»ûô @Z»üô @Z»ıô @V»ıô @V»ıô @V»ıô @V»ı  @V»ü4  @Z»û  @Z»û  @Z»ûô @V»û4  @V»ù4  @V»÷ô @V»÷ô @V»÷ô @V»÷ô @V»÷  @Z»÷ô @V»÷ô @Z»øô @V»øô @V»øô @V»ø  @V»÷  @V»ö  @Z»ö  @^»÷ô @Z»øô @V»øô @Z»ùô @V»ùô @V»ù  @V»ø  @V»÷  @V»ö  @Z»ö  @^»÷ô @V»÷ô @V»÷ô @V»÷ô @Z»øô @Z»ù  @V»øô @V»øô @V»øô @Z»ù4  @^»ù4  @V»÷ô @V»÷ô @V»÷ô @V»÷ô @V»÷  @V»öô @V»öô @V»öô @Z»÷4  @Z»ö4  @V»ôô @V»ô  @V»óô @Z»ô4  @^»ô  @V»óô @V»óô @V»óô @Z»ô  @Z»ô  @V»óô @V»óô @V»óô @V»óô @V»óô @Z»ôô @Z»õô @Z»öô @Z»÷4  @Z»ö  @V»õô @V»õô @V»õô @Z»öô @^»ø  @V»÷ô @V»÷  @V»öô @Z»÷ô @Z»øô @Z»ù  @Z»ù  @Z»ù  @V»øô @V»ø  @V»÷ô @V»÷  @V»öô @Z»÷ô @Z»øô @V»øô @V»øô @V»øô @V»øô @V»øô @Z»ùô @Z»úô @Z»ûô @V»û4  @V»ù  @V»øô @V»øô @V»øô @V»ø  @V»÷  @Z»÷ô @V»÷ô @Z»øô @V»ø4  @V»ö  @V»õô @V»õô @V»õô @Z»ö  @^»÷  @V»öô @V»öô @V»öô @V»ö4  @V»ô  @Z»ôô @V»ôô @Z»õô @V»õô @V»õ  @V»ôô @V»ô  @V»óô @V»óô @V»óô @V»ó  @V»ò  @V»ñ  @^»òô @Z»óô @V»óô @V»óô @V»óô @Z»ô  @Z»ô  @V»óô @V»óô @V»óô @^»õ4  @Z»ô  @V»óô @V»óô @V»óô @Z»ô  @Z»ô  @V»ó  @V»ò  @V»ñ  @V»ğô @V»ğô @Z»ñô @Z»òô @Z»óô @V»ó  @V»ò  @V»ñ  @V»ğ  @V»ï  @Z»ï  @Z»ï  @V»îô @V»îô @V»îô @^»ğ4  @Z»ï4  @Z»îô @V»î  @Z»îô @V»îô @V»îô @Z»ï  @Z»ï  @Z»ï  @Z»ï  @Z»ï  @V»î  @V»í  @V»ì  @^»í  @Z»í  @V»ì  @V»ë  @V»ê  @V»éô @V»é  @Z»éô @V»é  @Z»éô @V»éô @V»éô @Z»ê  @Z»ê  @Z»ê  @Z»ê  @Z»ê  @V»é  @V»è  @V»ç  @^»èô @Z»é  @V»èô @V»è  @V»çô @Z»èô @Z»éô @V»éô @V»éô @V»éô @^»ë4  @Z»ê  @V»éô @V»éô @V»éô @Z»ê  @V»é  @V»èô @V»èô @V»èô @V»èô @Z»éô @Z»êô @Z»ëô @Z»ìô @V»ìô @V»ìô @Z»íô @V»íô @V»íô @V»í4  @V»ë4  @V»éô @V»é  @Z»éô @^»ëôLğT¿ ^j—şƒóé?€Õ´ÛNÿÁéôÀjÚm§ÿàtú`5í¶Óp:ı°švÛi@8şXO»ì œMÿ¬¨]vúN¦ÿ ÖÔn;ıçÒ «j×şƒSé?€UµëNÿÁ©ôÀªÚu§ áTú`]íºÓp&ı°®vİ)@8“şXY»îôœHÿ¬®]xúN£ÿ Ö×n<gÑ ;h7„“è?€´OÂIôÀÚ…§ÿàOú`#íÊÓpı°—vç)@ØŸşØK»òôìOÿì¥]y
-ö§ÿ öÒn<ıûÓ {i7şƒıé?€½´OÿÁşôÀ^Ú§ÿ`ú`/íÆÓ°?ı°—vã)@ØŸşØM»ñ4 ìNÿì¦İwúv§ÿ vÓî;ı»Ó »i÷şƒİé?€ı´OÿÁŞôÀÚ•§ÿ`_ú`WíÎÓ°+ı°«vçé?Ø•şØU»óôìJÿìªİyúöô¤ÿ ¶Õî<ı{Ò ûjw„=é?€µ;OÿÁôÀÎÚ§ aGú`gíÊÓ°#ı°³våé?Ø‘şØY»òôìHÿì¬]yúv¤ÿ vÖ®<ı;Ò ;kW„é?€µOÂôÀÎÚ}§ÿ`Gú`gí¾Ó°#ı°³vßé?Ø‘şØY»ï ìHÿì¬]w
-v¤ÿ vÖn;;Ò ;k—„é?€µ»NÂôÀÎÚU§ a?Oú`kí¦S€°ı°·vÑ)@ØşØ[»ç ìGÿì­]s
-ö£ÿ öÖn9ûÑ {k—œ„ıè?€İµKNÿÁnôÀşÚ-§ a/úàí–S€°ıp†vËé?Ø‡ş8C»å ìCÿœ¡]r
-ö¡ÿ ÎĞî8ıûĞ ghwœ„}è?€3´+NÂ>ôÀÚ§aúàí~S€°ıpŠv¿é?Ø…ş8E»ß ìáIÿ£]oúö ÿ ÎÑ®7ı{Ğ 'i÷›„è?€³´ûMÂúôÀiÚı¦ auúà<í~Ó°6ıpv¿)@X›ş8O»Şô¬Mÿœ¨İoú  «İo
-  ­İoú  ¯İpú  ­]qú  «]qú  «]qú  «]qú  «]q
-  «İpú  ­]q
-  «İp
-  «]p
-  «İo
-  ­İoú  ­]p
-  ­]p
-  ­]pú  «]p
-  «İoú  «İoú  «İo
-  «]oú  ­İoú  ­]pú  ­İpú  ­]q
-  ­]qú  «]q
-  «İpú  «İp
-  «]p
-  «İoú  ­]p
-  «İoú  «İoú  «İo
-  «]o
-  «İn  «İm
-  «]mú  «]m
-  «İlú  «İlú  ­]mú  ­İmú  ­]nú  ­İnú  «İnú  «İnú  «İnú  «İnú  «İn
-  ­İn  «İmú  «İmú  «İmú  ¯İnú  ¯İoú  «İoú  «İoú  «İoú  «İoú  «İoú  «İo
-  «]oú  ­İo
-  «]oú  «]oú  ­İo
-  ­İo
-  ­İo
-  ­İoú  «İoú  «İo
-  «]oú  «]o
-  «İn
-  ­İn  ­]nú  ­İnú  ­]oú  ­İo
-  ­İo
-  «]oú  «]oú  «]oú  «]oú  «]oú  «]o
-  «İn
-  «]n
-  ¯İn
-  ¯]o
-  «İn
-  «]n
-  «İm
-  «]m
-  ­]mZ  «]jú  «]jú  «]jú  «]j
-  «İi  ­]iú  ­İiú  ­]jú  ­İj
-  ­İj
-  «]j
-  «İi
-  «]i
-  «İh
-  «]h:  ­İf
-  ­İfú  ­]g
-  ­]g
-  «İf  «İe
-  ­İeú  «İe
-  «]e:  «]c
-  «İb
-  «]b
-  «İa
-  «]akh  rÚåµŠö×  ¥İ]ëh%  2ÚÕµöW  £]]ëh%  rÚåµ†öW  «]_}í¯  @V»¾úÚ_ø¾ÿı°ƒ  ( 
