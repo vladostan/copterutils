@@ -7,14 +7,19 @@ import os
 import matplotlib.pylab as plt
 from glob import glob
 import numpy as np
-
+import argparse
 import datetime
 
 now = datetime.datetime.now()
 
 loggername = str(now).split(".")[0];
 
-logger = open("logs/{}.txt".format(loggername),"w") 
+logger = open("logs/{}.txt".format(loggername),"w")
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-e", required=True, help="number of epochs")
+ap.add_argument("-bs", required=True, help="batch size")
+args = vars(ap.parse_args())
 
 # # READ IMAGES AND MASKS
 # In[21]:
@@ -131,8 +136,8 @@ import tensorflow as tf
 
 nb_train_samples = len(x_train)
 nb_test_samples = len(x_test)
-epochs = 2
-batch_size = 1
+epochs = args["e"]
+batch_size = args["bs"]
 
 logger.write("Train samples: {}, test samples: {}\n\n".format(nb_train_samples,nb_test_samples))
 logger.write("Epochs:{}, batch_size: {}\n\n".format(epochs, batch_size))
