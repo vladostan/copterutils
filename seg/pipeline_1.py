@@ -230,14 +230,13 @@ class_weighting = np.fromiter(class_weights.values(), dtype=float)
 history = model.fit(x_train, y_train_flat, batch_size=batch_size, epochs=epochs, verbose=1, class_weight=class_weighting)
 
 # In[42]:
+import pandas
 
-with open('/trainHistoryDict', 'wb') as file_pi:
-        pickle.dump(history.history, file_pi)
+pandas.DataFrame(history.history).to_csv("history/history1.csv")
 
 # In[67]:
 
 model.save_weights('weights/trial.hdf5')
-
 
 # In[43]:
 
