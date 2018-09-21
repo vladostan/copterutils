@@ -134,8 +134,6 @@ batch_size = 1
 
 # In[48]:
 
-import skimage.io as io
-import skimage.transform as trans
 from keras.models import *
 from keras.layers import *
 from keras.optimizers import *
