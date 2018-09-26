@@ -1,0 +1,7 @@
+model.compile(optimizer = Adam(lr=0.005, beta_1=0.9, beta_2=0.999, epsilon=1e-08, decay=0.0), loss = 'categorical_crossentropy', metrics = ['accuracy'])
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.2,
+                              patience=10, min_lr=0.0001)
+
+BAD STAGNATION
+
+------------------------------------------------------------------------------------
