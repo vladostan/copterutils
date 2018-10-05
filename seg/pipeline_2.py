@@ -11,7 +11,8 @@ import numpy as np
 # In[2]:
 PATH = os.path.abspath('data')
 
-SOURCE_IMAGES = [os.path.join(PATH, "images/ds1"), os.path.join(PATH, "images/ds1/albumentated")]
+SOURCE_IMAGES = [os.path.join(PATH, "images/ds1"), 
+                 os.path.join(PATH, "images/ds1/albumentated")]
 
 images = []
 labels = []
@@ -43,8 +44,8 @@ for lbl in labels:
 del(images, labels, full_size_image, full_size_label)
 
 # In[19]:
-x = np.asarray(x[:10])
-y = np.asarray(y[:10])
+x = np.asarray(x[:40])
+y = np.asarray(y[:40])
 
 # In[20]:
 print(y.min())
@@ -179,7 +180,6 @@ print(y_train.shape)
 print(x_test.shape)
 print(y_test.shape)
 
-
 # In[ ]:
 from keras.preprocessing.image import ImageDataGenerator
 from keras import backend as K
@@ -242,7 +242,7 @@ validation_generator = test_datagen.flow(x_test, y_test, batch_size=batch_size)
 #     plt.show()
 #     break
 
-
+# In[ ]:
 # # Define model
 # # U-Net
 from models.Unet import unet
@@ -266,6 +266,7 @@ K.set_session(get_tf_session())
 
 
 # In[ ]:
+
 from keras import callbacks
 
 model_checkpoint = callbacks.ModelCheckpoint('weights/some_name.hdf5', monitor='loss', verbose=1, save_best_only=True, save_weights_only=True)
@@ -274,6 +275,7 @@ reduce_lr = callbacks.ReduceLROnPlateau(monitor='loss', factor=0.2,
                               patience=5, verbose = 1, min_lr=1e-5)
 csv_logger = callbacks.CSVLogger('training.log')
 
+# In[ ]:
 
 history = model.fit_generator(
     train_generator,
@@ -285,4 +287,3 @@ history = model.fit_generator(
     class_weight = class_weighting,
     callbacks = [model_checkpoint, tensor_board, reduce_lr, csv_logger]
 )
-
