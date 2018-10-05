@@ -18,7 +18,7 @@ import sys
 class Logger(object):
     def __init__(self):
         self.terminal = sys.stdout
-        self.log = open('logs/{}'.format(loggername), 'w')
+        self.log = open('logs/{}.txt'.format(loggername), 'w')
 
     def write(self, message):
         self.terminal.write(message)
@@ -306,7 +306,7 @@ model_checkpoint = callbacks.ModelCheckpoint('weights/{}.hdf5'.format(loggername
 tensor_board = callbacks.TensorBoard(log_dir='./tblogs')
 reduce_lr = callbacks.ReduceLROnPlateau(monitor='loss', factor=0.2,
                               patience=5, verbose = 1, min_lr=1e-5)
-csv_logger = callbacks.CSVLogger('{}.log'.format(loggername))
+csv_logger = callbacks.CSVLogger('logs/{}.log'.format(loggername))
 
 callbacks = [model_checkpoint, tensor_board, reduce_lr, csv_logger]
 
