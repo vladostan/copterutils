@@ -6,6 +6,35 @@ import os
 import matplotlib.pylab as plt
 from glob import glob
 import numpy as np
+import datetime
+
+# Get the date and time
+now = datetime.datetime.now()
+loggername = str(now).split(".")[0];
+
+# Print stdout to file
+import sys
+
+class Logger(object):
+    def __init__(self):
+        self.terminal = sys.stdout
+        self.log = open('logs/{}'.format(loggername), 'w')
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)  
+
+    def flush(self):
+        #this flush method is needed for python 3 compatibility.
+        #this handles the flush command by doing nothing.
+        #you might want to specify some extra behavior here.
+        pass    
+
+sys.stdout = Logger()
+
+#sys.stdout = open('logs/{}'.format(loggername), 'w')
+
+print('Date and time: {}\n'.format(loggername))
 
 # # READ IMAGES AND MASKS
 # In[2]:
@@ -20,14 +49,15 @@ labels = []
 for si in SOURCE_IMAGES:
     images.extend(glob(os.path.join(si, "*.jpg")))
     labels.extend(glob(os.path.join(si.replace("images","labels"), "*.png")))
+    
+print("Datasets used: {}\n".format(SOURCE_IMAGES))
 
-# In[3]:
 images.sort()
 labels.sort()
 
 # In[4]:
-print(np.size(images))
-print(np.size(labels))
+print("Number of images: {}".format(np.size(images)))
+print("Number of masks: {}\n".format(np.size(labels)))
 
 # In[18]:
 x = [] # images
@@ -48,10 +78,10 @@ x = np.asarray(x[:40])
 y = np.asarray(y[:40])
 
 # In[20]:
-print(y.min())
-print(y.max())
-print(x.shape)
-print(y.shape)
+print("Y min: {}".format(y.min()))
+print("Y max: {}\n".format(y.max()))
+print("X shape: {}".format(x.shape))
+print("Y shape: {}\n".format(y.shape))
 
 # In[21]:
 # Crop squared image
@@ -62,15 +92,16 @@ y = y[:,:,(w-h)//2:(w-(w-h)//2)]
 
 n_images, h, w = x.shape[0:3]
 
-print(x.shape)
-print(y.shape)
+print("Cropping squared images...")
+print("X shape: {}".format(x.shape))
+print("Y shape: {}\n".format(y.shape))
 
 # # Visualize
 # In[22]:
-fig, axes = plt.subplots(nrows = 1, ncols = 2)
-fig.set_size_inches(10,5)
-axes[0].imshow(x[0])
-axes[1].imshow(y[0])
+#fig, axes = plt.subplots(nrows = 1, ncols = 2)
+#fig.set_size_inches(10,5)
+#axes[0].imshow(x[0])
+#axes[1].imshow(y[0])
 
 # # Split images and masks into batches (optional)
 # In[23]:
@@ -79,9 +110,7 @@ split_factor = 4 # We crop this number of smaller images out of one
 x_t = np.zeros([n_images*split_factor, h_t, w_t, 3], dtype='uint8')
 y_t = np.zeros([n_images*split_factor, h_t, w_t], dtype='uint8')
 
-# In[24]:
-print(x_t.shape)
-print(y_t.shape)
+print("Cropping 512x512 batches...")
 
 # In[25]:
 for i in range(n_images):
@@ -94,45 +123,38 @@ for i in range(n_images):
     y_t[n_images*2+i] = y[i,h//2:h,:w//2]
     y_t[n_images*3+i] = y[i,h//2:h,w//2:w]
 
-# In[26]:
-print(x.shape)
-print(y.shape)
-
-# In[27]:
-print(x_t.shape)
-print(y_t.shape)
-
-# In[28]:
 x = x_t
 y = y_t
 del(x_t,y_t)
+
+print("X shape: {}".format(x.shape))
+print("Y shape: {}\n".format(y.shape))
 
 # # Class weighting
 # In[29]:
 n = np.bincount(y.reshape(y.shape[0]*y.shape[1]*y.shape[2]))
 
-# In[30]:
-print(str(n/n.sum()*100) + " %")
-
-# In[31]:
 cs = ['background', 'asphalt', 'building', 'forest', 'grass', 'ground', 'roadAsphalt', 'roadGround', 'water']
 
-# In[32]:
-import seaborn as sns
+print("Classes: {}".format(cs))
+print("Class distribution: {}\n".format(str(n/n.sum()*100) + " %"))
 
-sns.barplot(x=cs, y=n)
+# In[32]:
+#import seaborn as sns
+#
+#sns.barplot(x=cs, y=n)
 
 # In[33]:
 cw = np.median(n)/n
 
 # In[34]:
-sns.barplot(x=cs, y=n*cw)
+#sns.barplot(x=cs, y=n*cw)
 
 # In[35]:
 
 class_weights = dict(enumerate(cw))
 class_weighting = np.fromiter(class_weights.values(), dtype=float)
-class_weighting
+print("Class weights for balancing dataset: {}\n".format(class_weighting))
 
 # Convert one mask to N classes masks
 # In[37]:
@@ -142,62 +164,65 @@ from keras.utils import to_categorical
 
 y = to_categorical(y, num_classes=n_classes)
 y = y.reshape(x.shape[:3] + (n_classes,))
-y.shape
+
+print("One hot encoding Y matrix to categorical...")
+print("Y shape: {}\n".format(y.shape))
 
 # In[38]:
-nrows, ncols = 3,3
-fig, axes = plt.subplots(nrows=3, ncols=3)
-fig.set_size_inches(15,10)
-cl = 0
-im = 0
-for i in range(nrows):
-    for j in range(ncols):
-        axes[i,j].imshow(y[im,:,:,cl], cmap='gray')
-        axes[i,j].set_title(cs[cl])
-        axes[i,j].grid(None)
-        cl += 1
-     
-fig.tight_layout()
+#nrows, ncols = 3,3
+#fig, axes = plt.subplots(nrows=3, ncols=3)
+#fig.set_size_inches(15,10)
+#cl = 0
+#im = 0
+#for i in range(nrows):
+#    for j in range(ncols):
+#        axes[i,j].imshow(y[im,:,:,cl], cmap='gray')
+#        axes[i,j].set_title(cs[cl])
+#        axes[i,j].grid(None)
+#        cl += 1
+#     
+#fig.tight_layout()
 
 # In[39]:
 
-print(x.dtype)
 x = x/255
-print(x.dtype)
+print("X dtype after conversion: {}\n".format(x.dtype))
 
 # # Prepare for training
 # In[ ]:
 
 from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
+
+test_size = 0.2
+print("Train/test split: {}/{}\n".format(1-test_size,test_size))
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=test_size, random_state=1)
 
 del(x,y)
 
 # In[ ]:
 
-print(x_train.shape)
-print(y_train.shape)
-print(x_test.shape)
-print(y_test.shape)
+print("X_train shape: {}".format(x_train.shape))
+print("Y_train shape: {}\n".format(y_train.shape))
+print("X_test shape: {}".format(x_test.shape))
+print("Y_test shape: {}\n".format(y_test.shape))
 
 # In[ ]:
 from keras.preprocessing.image import ImageDataGenerator
 from keras import backend as K
 import tensorflow as tf
 
-K.image_data_format()
-
-# In[ ]:
-
-nb_train_samples = len(x_train)
-nb_test_samples = len(x_test)
+print("Keras image data format: {}\n".format(K.image_data_format()))
 
 # In[ ]:
 epochs = 1
 batch_size = 1
 
+print("Epochs: {}, batch size: {}\n".format(epochs,batch_size))
+
 data_gen_args = dict(width_shift_range=0.25,
                      height_shift_range=0.25)
+
+print("Keras augmentation used: {}\n".format(data_gen_args))
 
 image_datagen = ImageDataGenerator(**data_gen_args)
 mask_datagen = ImageDataGenerator(**data_gen_args)
@@ -249,13 +274,22 @@ from models.Unet import unet
 
 model = unet(input_size = x_train.shape[1:], n_classes=n_classes)
 
+print("Model summary:")
 model.summary()
 
 # In[ ]:
 from keras import optimizers
 
 #model.compile(optimizer = 'adadelta', loss = 'categorical_crossentropy', metrics = ['accuracy'])
-model.compile(optimizer = optimizers.Adam(lr = 1e-4), loss = 'categorical_crossentropy', metrics = ['accuracy'])
+
+learning_rate = 1e-4
+optimizer = optimizers.Adam(lr = learning_rate)
+loss = 'categorical_crossentropy'
+metrics = ['accuracy']
+
+print("Optimizer: {}, learning rate: {}, loss: {}, metrics: {}\n".format(optimizer, learning_rate, loss, metrics))
+
+model.compile(optimizer = optimizer, loss = loss, metrics = metrics)
 
 # In[ ]:
 
@@ -264,26 +298,38 @@ def get_tf_session():
     return tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 K.set_session(get_tf_session())
 
-
 # In[ ]:
 
 from keras import callbacks
 
-model_checkpoint = callbacks.ModelCheckpoint('weights/some_name.hdf5', monitor='loss', verbose=1, save_best_only=True, save_weights_only=True)
+model_checkpoint = callbacks.ModelCheckpoint('weights/{}.hdf5'.format(loggername), monitor='loss', verbose=1, save_best_only=True, save_weights_only=True)
 tensor_board = callbacks.TensorBoard(log_dir='./tblogs')
 reduce_lr = callbacks.ReduceLROnPlateau(monitor='loss', factor=0.2,
                               patience=5, verbose = 1, min_lr=1e-5)
-csv_logger = callbacks.CSVLogger('training.log')
+csv_logger = callbacks.CSVLogger('{}.log'.format(loggername))
+
+callbacks = [model_checkpoint, tensor_board, reduce_lr, csv_logger]
+
+print("Callbacks: {}\n".format(callbacks))
 
 # In[ ]:
 
+
+steps_per_epoch = len(x_train)//batch_size*2 #Twice dataset for training (leads more keras augmentation)
+validation_steps = len(x_test)//batch_size
+
+print("Steps per epoch: {}".format(steps_per_epoch))
+print("Validation steps: {}\n".format(validation_steps))
+
+print("Starting training...\n")
 history = model.fit_generator(
     train_generator,
     validation_data = validation_generator,
-    steps_per_epoch=len(x_train)//batch_size,
-    validation_steps = len(x_test)//batch_size,
-    epochs=epochs,
+    steps_per_epoch = steps_per_epoch,
+    validation_steps = validation_steps,
+    epochs = epochs,
     verbose = 1,
     class_weight = class_weighting,
-    callbacks = [model_checkpoint, tensor_board, reduce_lr, csv_logger]
+    callbacks = callbacks
 )
+print("Finished training\n")
