@@ -74,8 +74,8 @@ for lbl in labels:
 del(images, labels, full_size_image, full_size_label)
 
 # In[19]:
-x = np.asarray(x[-20:])
-y = np.asarray(y[-20:])
+x = np.asarray(x)
+y = np.asarray(y)
 
 # In[20]:
 print("Y min: {}".format(y.min()))
