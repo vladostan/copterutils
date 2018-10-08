@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
+import skimage.io as io
+import skimage.transform as trans
 from keras.models import *
 from keras.layers import *
 from keras.optimizers import *
 from keras.layers.merge import concatenate
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 
-def unet(pretrained_weights = None, input_size = (512,512,3), n_classes = 9):
+def unet_sparse(pretrained_weights = None, input_size = (512,512,3)):
     inputs = Input(input_size)
     
     conv1 = Conv2D(64, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(inputs)
@@ -51,7 +53,7 @@ def unet(pretrained_weights = None, input_size = (512,512,3), n_classes = 9):
     conv9 = Conv2D(64, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(merge9)
     conv9 = Conv2D(64, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
     
-    conv10 = Conv2D(n_classes, 1, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
+    conv10 = Conv2D(1, 1, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
 #    conv10 = Conv2D(n_classes, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(conv9)
 #     conv10 = Reshape((input_size[0]*input_size[1],n_classes))(conv10)
     conv10 = Activation('softmax')(conv10)

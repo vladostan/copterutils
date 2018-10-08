@@ -74,8 +74,8 @@ for lbl in labels:
 del(images, labels, full_size_image, full_size_label)
 
 # In[19]:
-x = np.asarray(x[-20:])
-y = np.asarray(y[-20:])
+x = np.asarray(x)
+y = np.asarray(y)
 
 # In[20]:
 print("Y min: {}".format(y.min()))
@@ -216,15 +216,15 @@ import tensorflow as tf
 print("Keras image data format: {}\n".format(K.image_data_format()))
 
 # In[ ]:
-epochs = 1
-batch_size = 1
+epochs = 100
+batch_size = 2
 
 print("Epochs: {}, batch size: {}\n".format(epochs,batch_size))
 
 data_gen_args = dict(rotation_range = 15,
-                     width_shift_range = 0.2,
+		     width_shift_range = 0.2,
                      height_shift_range = 0.2,
-                     horizontal_flip = True)
+		     horizontal_flip = True)
 
 print("Keras augmentation used: {}\n".format(data_gen_args))
 
@@ -238,7 +238,8 @@ mask_datagen.fit(y_train, augment=True, seed=seed)
 image_generator = image_datagen.flow(x_train, seed=seed, batch_size=batch_size)
 mask_generator = mask_datagen.flow(y_train, seed=seed, batch_size=batch_size)
 
-train_generator = zip(image_generator, mask_generator)
+from itertools import izip
+train_generator = izip(image_generator, mask_generator)
 
 test_datagen = ImageDataGenerator()
 validation_generator = test_datagen.flow(x_test, y_test, batch_size=batch_size)
