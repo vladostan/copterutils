@@ -184,8 +184,8 @@ print("Y shape: {}\n".format(y.shape))
 #fig.tight_layout()
 
 # In[39]:
-x = x/255.
-y = y.astype(int)
+x = np.float32(x/255.)
+y = y.astype('int8')
 
 print("X dtype after conversion: {}".format(x.dtype))
 print("Y dtype after conversion: {}\n".format(y.dtype))
@@ -217,7 +217,7 @@ print("Keras image data format: {}\n".format(K.image_data_format()))
 
 # In[ ]:
 epochs = 100
-batch_size = 2
+batch_size = 1
 
 print("Epochs: {}, batch size: {}\n".format(epochs,batch_size))
 
@@ -287,7 +287,7 @@ from keras import optimizers
 
 #model.compile(optimizer = 'adadelta', loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
-learning_rate = 1e-4
+learning_rate = 5e-5
 optimizer = optimizers.Adam(lr = learning_rate)
 loss = 'categorical_crossentropy'
 metrics = ['accuracy']
@@ -296,12 +296,14 @@ print("Optimizer: {}, learning rate: {}, loss: {}, metrics: {}\n".format(optimiz
 
 model.compile(optimizer = optimizer, loss = loss, metrics = metrics)
 
+model.load_weights('weights/2018-10-09 11:20:32.hdf5')
+
 # In[ ]:
 
 def get_tf_session():
     gpu_options = tf.GPUOptions(allow_growth=True)
     return tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
-K.set_session(get_tf_session())
+#K.set_session(get_tf_session())
 
 # In[ ]:
 
@@ -309,11 +311,12 @@ from keras import callbacks
 
 model_checkpoint = callbacks.ModelCheckpoint('weights/{}.hdf5'.format(loggername), monitor='loss', verbose=1, save_best_only=True, save_weights_only=True)
 tensor_board = callbacks.TensorBoard(log_dir='./tblogs')
-reduce_lr = callbacks.ReduceLROnPlateau(monitor='loss', factor=0.2,
-                              patience=5, verbose = 1, min_lr=1e-5)
+reduce_lr = callbacks.ReduceLROnPlateau(monitor='loss', factor=0.5,
+                              patience=2, verbose = 1, min_lr=1e-5)
 csv_logger = callbacks.CSVLogger('logs/{}.log'.format(loggername))
+early_stopper = callbacks.EarlyStopping(monitor='loss', min_delta = 0.0025, patience = 3, verbose = 1)
 
-callbacks = [model_checkpoint, tensor_board, reduce_lr, csv_logger]
+callbacks = [model_checkpoint, tensor_board, reduce_lr, csv_logger, early_stopper]
 
 print("Callbacks: {}\n".format(callbacks))
 

@@ -37,6 +37,55 @@ class Logger(object):
 print('Date and time: {}\n'.format(loggername))
 
 # In[ ]:
+
+# # READ IMAGES AND MASKS
+# In[2]:
+PATH = os.path.abspath('data')
+
+SOURCE_IMAGES = [os.path.join(PATH, "images/ds1"), 
+                 os.path.join(PATH, "images/ds1/albumentated")]
+
+images = []
+labels = []
+
+for si in SOURCE_IMAGES:
+    images.extend(glob(os.path.join(si, "*.jpg")))
+    labels.extend(glob(os.path.join(si.replace("images","labels"), "*.png")))
+    
+print("Datasets used: {}\n".format(SOURCE_IMAGES))
+
+images.sort()
+labels.sort()
+
+# In[4]:
+print("Number of images: {}".format(np.size(images)))
+print("Number of masks: {}\n".format(np.size(labels)))
+
+# In[18]:
+x = [] # images
+y = [] # labels
+
+for img in images:
+    full_size_image = plt.imread(img)
+    x.append(full_size_image)
+
+for lbl in labels:
+    full_size_label = plt.imread(lbl,0)
+    y.append(full_size_label)
+    
+del(images, labels, full_size_image, full_size_label)
+
+# In[19]:
+x = np.asarray(x[:20])
+y = np.asarray(y[:20])
+
+# In[20]:
+print("Y min: {}".format(y.min()))
+print("Y max: {}\n".format(y.max()))
+print("X shape: {}".format(x.shape))
+print("Y shape: {}\n".format(y.shape))
+
+# In[]
 from keras.preprocessing.image import ImageDataGenerator
 from keras import backend as K
 import tensorflow as tf

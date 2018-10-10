@@ -131,7 +131,6 @@ def n_to_one(y):
 
 # In[16]:
 
-
 n_classes = len(cs)
 y = one_to_n(y,n_classes)
 # y = n_to_one(y)

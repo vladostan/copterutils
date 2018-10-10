@@ -30,7 +30,7 @@ class Logger(object):
         #you might want to specify some extra behavior here.
         pass    
 
-sys.stdout = Logger()
+#sys.stdout = Logger()
 
 #sys.stdout = open('logs/{}'.format(loggername), 'w')
 
@@ -74,8 +74,8 @@ for lbl in labels:
 del(images, labels, full_size_image, full_size_label)
 
 # In[19]:
-x = np.asarray(x)
-y = np.asarray(y)
+x = np.asarray(x[:20])
+y = np.asarray(y[:20])
 
 # In[20]:
 print("Y min: {}".format(y.min()))
@@ -184,8 +184,8 @@ print("Y shape: {}\n".format(y.shape))
 #fig.tight_layout()
 
 # In[39]:
-x = x/255.
-y = y.astype(int)
+x = np.float32(x/255.)
+y = y.astype('int8')
 
 print("X dtype after conversion: {}".format(x.dtype))
 print("Y dtype after conversion: {}\n".format(y.dtype))

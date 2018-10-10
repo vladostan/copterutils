@@ -6,7 +6,7 @@ from keras.optimizers import *
 from keras.layers.merge import concatenate
 from keras.callbacks import ModelCheckpoint, LearningRateScheduler
 
-def unet(pretrained_weights = None, input_size = (512,512,3), n_classes = 9):
+def unet(input_size = (512,512,3), n_classes = 9):
     inputs = Input(input_size)
     
     conv1 = Conv2D(64, 3, activation = 'relu', padding = 'same', kernel_initializer = 'he_normal')(inputs)
@@ -57,8 +57,5 @@ def unet(pretrained_weights = None, input_size = (512,512,3), n_classes = 9):
     conv10 = Activation('softmax')(conv10)
     
     model = Model(inputs = inputs, outputs = conv10)
-    
-    if(pretrained_weights):
-        model.load_weights(pretrained_weights)
 
     return model
