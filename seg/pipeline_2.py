@@ -11,6 +11,7 @@ import datetime
 # Get the date and time
 now = datetime.datetime.now()
 loggername = str(now).split(".")[0];
+loggername = loggername.replace(":","-")
 
 # Print stdout to file
 import sys
